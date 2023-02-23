@@ -16,6 +16,8 @@ module.exports = {
 				'jo-primary': '#d74e24',
 				'jo-grey': '#d7dade',
 				'jo-grey-100': '#a5a7ab',
+				'jo-grey-200': '#848589',
+				'jo-blue': '#083D77',
 			},
 		},
 	},

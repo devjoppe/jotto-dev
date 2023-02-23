@@ -13,16 +13,16 @@ const cardData = data.data
     const cardImage = process.env.API_URL+card.attributes.cardImage.data.attributes.formats.small.url
     const cardBgImage = "background-image: url("+process.env.API_URL+card.attributes.cardImage.data.attributes.formats.small.url+")"
     return <article>
-            <div class="flex flex-row mb-8 border p-12 border-jo-grey">
+            <div class="flex flex-col mb-8 border p-12 border-jo-grey">
                 <div>
-                    <div class="block w-32 h-32" style={cardBgImage}></div>
+                    <div class="block w-full h-48 bg-cover bg-no-repeat" style={cardBgImage}></div>
                     <!--<img alt="" src={cardImage}>-->
                 </div>
-                <div class="p-4 flex flex-col">
+                <div class="py-4 flex flex-col">
                     <h3 class="text-5xl mb-4">{cardContent.title}</h3>
                     <div>
                         { cardContent.techstack.map(tag => {
-                            return <span class="text-md bg-gray-200 rounded-md px-3 py-2 mr-2">{tag}</span>
+                            return <span class="text-md bg-gray-200 text-jo-blue font-bold px-3 py-2 mr-2">{tag}</span>
                         })}
                     </div>
                     <p class="text-md mt-4">{cardContent.description}</p>
