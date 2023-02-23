@@ -1,0 +1,44 @@
+---
+import * as dotenv from 'dotenv'
+
+dotenv.config()
+
+import ProjectSectionLayout from "../layouts/ProjectSectionLayout.astro"
+import BaseLayout from "../layouts/BaseLayout.astro";
+const title = "Home"
+
+const response = await fetch(process.env.API_URL+'/api/start')
+const data = await response.json()
+const startData = data.data.attributes
+---
+
+<BaseLayout title={title}>
+    <section id="welcome" class="mb-32">
+        <h1 class="text-8xl uppercase" style="line-height: 95px;">
+            Run<br>
+            Frontend<br>
+            Start
+        </h1>
+    </section>
+    <section id="about" class="mb-32">
+        <!--Start: Short description -->
+        <span class="text-5xl block mb-8">{startData.title}</span>
+        <span class="text-4xl block mb-32">{startData.description}</span>
+        <!-- End: Short description -->
+        <!-- Start: About -->
+        <h2 class="text-5xl mb-8 uppercase">{startData.sectionTitle}</h2>
+        <div class="flex flex-wrap">
+            <div class="w-full md:w-1/2">
+                <h3 class="text-4xl mb-4">{startData.sectionATitle}</h3>
+                <p class="text-2xl mb-8">{startData.sectionA}</p>
+            </div>
+            <div class="w-full md:w-1/2">
+                <h3 class="text-4xl mb-4">{startData.sectionBTitle}</h3>
+                <p class="text-2xl mb-8">{startData.sectionB}</p>
+            </div>
+        </div>
+    </section>
+    <!-- Start: Section Projects -->
+    <ProjectSectionLayout />
+    <!-- End: Section Projects -->
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import * as dotenv from 'dotenv'
+
+dotenv.config()
+
+const response = await fetch(process.env.API_URL+'/api/project-cards?populate=project')
+const data = await response.json()
+const projectData = data.data
+---
+
+{ projectData.map(card => {
+    const content = card.attributes
+    const projectSlug = card.attributes.project.data.attributes.slug
+    console.log(projectSlug)
+    //const cardImage = process.env.API_URL+card.attributes.cardImage.data.attributes.formats.medium.url
+    return <article>
+        <div class="flex bg-red-500 rounded-md flex-col mb-8">
+            <div class="p-4 flex flex-col">
+                <h3 class="text-4xl mb-4">{content.title}</h3>
+                <div>
+                    { content.techstack.map(tag => {
+                        return <span class="text-md bg-gray-200 rounded-md px-3 py-2 mr-2">{tag}</span>
+                    })}
+                </div>
+                <p class="text-md mt-4">{content.description}</p>
+                <a href={"projects/"+projectSlug} class="bg-gray-200 rounded-md px-3 py-2 mt-4 flex w-32 justify-center">View Project</a>
+            </div>
+        </div>
+    </article>
+    })
+}

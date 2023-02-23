@@ -1,0 +1,33 @@
+---
+import * as dotenv from 'dotenv'
+
+dotenv.config()
+
+const response = await fetch(process.env.API_URL+'/api/project-cards?populate=cardImage.image')
+const data = await response.json()
+const cardData = data.data
+---
+
+{ cardData.filter(card => card.attributes.frontPage === true && card.attributes.highlight === false).map(card => {
+    const cardContent = card.attributes
+    const cardImage = process.env.API_URL+card.attributes.cardImage.data.attributes.formats.medium.url
+    return <article>
+        <div class="flex bg-red-500 rounded-md flex-col mb-8">
+            <div class="p-4 flex flex-col">
+                <h3 class="text-4xl mb-4">{cardContent.title}</h3>
+                <div>
+                    { cardContent.techstack.map(tag => {
+                        return <span class="text-md bg-gray-200 rounded-md px-3 py-2 mr-2">{tag}</span>
+                    })}
+                </div>
+                <p class="text-md mt-4">{cardContent.description}</p>
+                <a href={cardContent.link} class="bg-gray-200 rounded-md px-3 py-2 mt-4 flex w-32 justify-center">View Project</a>
+            </div>
+        </div>
+    </article>
+    })
+}
+<div class="flex">
+    <button class="bg-gray-200 rounded-md px-3 py-2 mt-4 flex w-32 justify-center">More projects</button>
+    <button class="bg-gray-200 rounded-md px-3 py-2 mt-4 flex w-32 justify-center">Visit my Github</button>
+</div>

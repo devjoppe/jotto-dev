@@ -1,0 +1,17 @@
+---
+import * as dotenv from 'dotenv'
+
+dotenv.config()
+
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ProjectList from '../components/ProjectList.astro'
+
+const title = "Projects"
+---
+
+<BaseLayout title={title}>
+    <h2 class="text-5xl mb-8 mt-8 uppercase">{title}</h2>
+    <section>
+        <ProjectList />
+    </section>
+</BaseLayout>

@@ -1,0 +1,22 @@
+{
+	"name": "smoggy-star",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/tailwind": "^3.0.1",
+		"astro": "^2.0.14",
+		"dotenv": "^16.0.3",
+		"tailwindcss": "^3.2.7"
+	},
+	"devDependencies": {
+		"@types/node": "^17.0.8",
+		"typescript": "^4.5.4"
+	}
+}

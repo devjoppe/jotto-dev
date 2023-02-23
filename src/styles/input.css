@@ -1,0 +1,16 @@
+@font-face{font-family:"blender-pro-heavy"; src:url("/assets/fonts/blenderpro/BlenderPro-Heavy.woff") format("woff")}
+@font-face{font-family:"blender-pro-regular"; src:url("/assets/fonts/blenderpro/BlenderPro-Book.woff") format("woff")}
+
+@layer base {
+    h1, h2, h3 {
+        @apply font-heading;
+    }
+}
+
+body p {
+    font-size: 1.25rem;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

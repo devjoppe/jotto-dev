@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export const getStaticPaths = async () => {
+    const res = await fetch(process.env.API_URL+'/api/projects?populate=mainImage.image')
+    const { data } = await res.json()
+
+    return data.map(project => {
+        return {
+            params: { slug: project.attributes.slug },
+            props: { project }
+        }
+    })
+}
+const {project} = Astro.props
+const serverBody = project.attributes.body.replaceAll("/uploads/", "http://localhost:1337/uploads/")
+const mainImage = process.env.API_URL+project.attributes.mainImage.data.attributes.url
+---
+
+<BaseLayout>
+    <div class="block absolute left-0 h-64 w-full">
+        <img alt={project.attributes.Title} class="absolute block object-cover h-64 w-full" src={mainImage}>
+        <div class="container mx-auto pl-6 pr-6 h-full">
+            <div class="relative flex h-full w-64 items-end">
+                <h1 class="text-zinc-50 text-6xl mb-6">{project.attributes.Title}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="mt-64 pt-8">
+        <div class="mb-8">
+            <span class="text-2xl">{project.attributes.Description}</span>
+        </div>
+        <div class="mb-8">
+            <span class="font-bold block mb-2">Built with:</span>
+            {project.attributes.techStack.map(tag => {
+                return <span class="text-md bg-gray-200 rounded-md px-3 py-2 mr-2">{tag}</span>
+            })}
+        </div>
+        <div set:html={serverBody}></div>
+    </div>
+</BaseLayout>
