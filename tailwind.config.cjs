@@ -13,7 +13,9 @@ module.exports = {
 		},
 		extend: {
 			colors: {
+				'jo-primary': '#d74e24',
 				'jo-grey': '#d7dade',
+				'jo-grey-100': '#a5a7ab',
 			},
 		},
 	},
