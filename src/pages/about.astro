@@ -9,7 +9,6 @@ const aboutData = data.data.attributes
 
 const serverBody = aboutData.body.replaceAll("/uploads/", "http://localhost:1337/uploads/")
 const mainImage = process.env.API_URL+aboutData.topImage.data.attributes.url
-console.log(aboutData)
 ---
 
 <BaseLayout title={title}>
@@ -22,6 +21,6 @@ console.log(aboutData)
         </div>
     </div>
     <div>
-        <div class="mt-64" set:html={serverBody}></div>
+        <div class="inline-block mt-64" set:html={serverBody}></div>
     </div>
 </BaseLayout>

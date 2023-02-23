@@ -726,6 +726,10 @@ h1, h2, h3{
   margin-right:auto
 }
 
+.mb-2{
+  margin-bottom:0.5rem
+}
+
 .mb-32{
   margin-bottom:8rem
 }
@@ -764,10 +768,6 @@ h1, h2, h3{
 
 .mt-8{
   margin-top:2rem
-}
-
-.mb-2{
-  margin-bottom:0.5rem
 }
 
 .box-border{
@@ -920,6 +920,14 @@ h1, h2, h3{
 
 .w-full{
   width:100%
+}
+
+.w-3\/4{
+  width:75%
+}
+
+.w-3\/5{
+  width:60%
 }
 
 .flex-1{
@@ -2066,14 +2074,6 @@ h1, h2, h3{
 
 .font-bold{
   font-weight:700
-}
-
-.font-medium{
-  font-weight:500
-}
-
-.font-semibold{
-  font-weight:600
 }
 
 .uppercase{
