@@ -14,6 +14,7 @@ module.exports = {
 		extend: {
 			colors: {
 				'jo-primary': '#d74e24',
+				'jo-dark-grey': '#232323',
 				'jo-grey': '#d7dade',
 				'jo-grey-100': '#a5a7ab',
 				'jo-grey-200': '#848589',
