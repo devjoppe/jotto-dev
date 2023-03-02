@@ -748,6 +748,10 @@ h1, h2, h3{
   margin-bottom:1rem
 }
 
+.mb-5{
+  margin-bottom:1.25rem
+}
+
 .mb-6{
   margin-bottom:1.5rem
 }
@@ -794,10 +798,6 @@ h1, h2, h3{
 
 .mt-8{
   margin-top:2rem
-}
-
-.mb-5{
-  margin-bottom:1.25rem
 }
 
 .box-border{
@@ -912,8 +912,8 @@ h1, h2, h3{
   height:4rem
 }
 
-.h-24{
-  height:6rem
+.h-32{
+  height:8rem
 }
 
 .h-48{
@@ -932,8 +932,8 @@ h1, h2, h3{
   height:100%
 }
 
-.h-32{
-  height:8rem
+.h-24{
+  height:6rem
 }
 
 .w-1{
@@ -970,14 +970,6 @@ h1, h2, h3{
 
 .w-full{
   width:100%
-}
-
-.w-52{
-  width:13rem
-}
-
-.w-56{
-  width:14rem
 }
 
 .flex-1{
@@ -2280,11 +2272,6 @@ h1, h2, h3{
 .text-slate-300{
   --tw-text-opacity:1;
   color:rgb(203 213 225 / var(--tw-text-opacity))
-}
-
-.text-white{
-  --tw-text-opacity:1;
-  color:rgb(255 255 255 / var(--tw-text-opacity))
 }
 
 .text-zinc-50{
