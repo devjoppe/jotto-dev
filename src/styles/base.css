@@ -796,6 +796,10 @@ h1, h2, h3{
   margin-top:2rem
 }
 
+.mb-5{
+  margin-bottom:1.25rem
+}
+
 .box-border{
   box-sizing:border-box
 }
@@ -966,6 +970,14 @@ h1, h2, h3{
 
 .w-full{
   width:100%
+}
+
+.w-52{
+  width:13rem
+}
+
+.w-56{
+  width:14rem
 }
 
 .flex-1{
