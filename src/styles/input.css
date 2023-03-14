@@ -17,6 +17,16 @@ body p {
     color: #41403f;
 }
 
+/* Sidebar */
+.jo-sidebar li a {
+    color: #232323;
+}
+
+.jo-sidebar li a.current {
+    background: #232323;
+    color: #f4f3ef;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

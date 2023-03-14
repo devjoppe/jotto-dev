@@ -2,9 +2,10 @@
 import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import SideBar from '../components/SideBar.astro'
 
-const { title } = Astro.props;
-import '../styles/base.css';
+const { title } = Astro.props
+import '../styles/base.css'
 ---
 
 <html lang="en">
@@ -15,18 +16,17 @@ import '../styles/base.css';
         <Header />
         <div class="flex justify-center container mx-auto pl-6 pr-6">
             <div class="w-3/5">
-                <!-- index.astro, and other files from pages -->
-                <slot />
+                <main>
+                    <!-- index.astro, and other files from pages -->
+                    <slot />
+                </main>
             </div>
-            <div id="relative sidebar">
-                <div class="sticky top-0 ml-4 w-24">
-                    ON THIS PAGE<br>
-                    Welcome<br>
-                    What I do<br>
-                    ProjectsAAA
-                </div>
-            </div>
+            <SideBar />
         </div>
         <Footer />
+
+        <!-- Imported scripts -->
+        <script src="../script/sideMenu.js"></script>
+
     </body>
 </html>

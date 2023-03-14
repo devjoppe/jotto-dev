@@ -20,9 +20,18 @@ body p {
   color: #41403f;
 }
 
-/*
-! tailwindcss v3.2.7 | MIT License | https://tailwindcss.com
-*/
+/* Sidebar */
+
+.jo-sidebar li a {
+  color: #232323;
+}
+
+.jo-sidebar li a.current {
+  background: #232323;
+  color: #f4f3ef;
+}
+
+/* ! tailwindcss v3.2.7 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -685,6 +694,10 @@ h1, h2, h3{
 
 .top-0{
   top:0px
+}
+
+.top-2{
+  top:0.5rem
 }
 
 .isolate{
@@ -2023,6 +2036,11 @@ h1, h2, h3{
 .px-1{
   padding-left:0.25rem;
   padding-right:0.25rem
+}
+
+.px-2{
+  padding-left:0.5rem;
+  padding-right:0.5rem
 }
 
 .px-3{
