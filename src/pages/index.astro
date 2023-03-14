@@ -1,15 +1,20 @@
 ---
+const title = "Home"
+
 import * as dotenv from 'dotenv'
+
+// Import API connection
+import {apiFetch} from "../script/apiConnect";
 
 dotenv.config()
 
 import ProjectSectionLayout from "../layouts/ProjectSectionLayout.astro"
 import BaseLayout from "../layouts/BaseLayout.astro";
-const title = "Home"
 
-const response = await fetch(process.env.API_URL+'/api/start')
-const data = await response.json()
-const startData = data.data.attributes
+
+// Get API Data
+const slug = "/api/start"
+const apiData = await apiFetch(slug, false)
 ---
 
 <BaseLayout title={title}>
@@ -23,18 +28,18 @@ const startData = data.data.attributes
     <section id="about" class="mb-32">
         <!--Start: Short description -->
         <!-- <span class="text-5xl block mb-8">{startData.title}</span> -->
-        <span class="text-4xl block mb-32">{startData.description}</span>
+        <span class="text-4xl block mb-32">{apiData.description}</span>
         <!-- End: Short description -->
         <!-- Start: About -->
-        <h2 class="text-5xl mb-8 uppercase">{startData.sectionTitle}</h2>
+        <h2 class="text-5xl mb-8 uppercase">{apiData.sectionTitle}</h2>
         <div class="flex flex-wrap">
             <div class="w-full md:w-1/2 border p-12 border-r-0 border-jo-grey">
-                <h3 class="text-4xl mb-4">{startData.sectionATitle}</h3>
-                <p class="text-2xl">{startData.sectionA}</p>
+                <h3 class="text-4xl mb-4">{apiData.sectionATitle}</h3>
+                <p class="text-2xl">{apiData.sectionA}</p>
             </div>
             <div class="w-full md:w-1/2 border p-12 border-jo-grey">
-                <h3 class="text-4xl mb-4">{startData.sectionBTitle}</h3>
-                <p class="text-2xl">{startData.sectionB}</p>
+                <h3 class="text-4xl mb-4">{apiData.sectionBTitle}</h3>
+                <p class="text-2xl">{apiData.sectionB}</p>
             </div>
         </div>
     </section>

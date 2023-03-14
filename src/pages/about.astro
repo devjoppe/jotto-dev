@@ -1,14 +1,17 @@
 ---
 const title = "About"
 
+// Import API connection
+import {apiFetch} from "../script/apiConnect";
+
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const res = await fetch(process.env.API_URL+'/api/about?populate=*')
-const data = await res.json()
-const aboutData = data.data.attributes
+// Get API Data
+const slug = "/api/about?populate=*"
+const apiData = await apiFetch(slug, false)
 
-const serverBody = aboutData.body.replaceAll("/uploads/", "http://localhost:1337/uploads/")
-const mainImage = process.env.API_URL+aboutData.topImage.data.attributes.url
+const htmlData = apiData.body.replaceAll("/uploads/", "http://localhost:1337/uploads/")
+const mainImage = process.env.API_URL+apiData.topImage.data.attributes.url
 ---
 
 <BaseLayout title={title}>
@@ -21,6 +24,6 @@ const mainImage = process.env.API_URL+aboutData.topImage.data.attributes.url
         </div>
     </div>
     <div>
-        <div class="inline-block mt-64" set:html={serverBody}></div>
+        <div class="inline-block mt-64" set:html={htmlData}></div>
     </div>
 </BaseLayout>
