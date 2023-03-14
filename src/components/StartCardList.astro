@@ -1,14 +1,17 @@
 ---
 import * as dotenv from 'dotenv'
 
+// Import API connection
+import {apiFetch} from "../script/apiConnect";
+
 dotenv.config()
 
-const response = await fetch(process.env.API_URL+'/api/project-cards?populate=cardImage.image')
-const data = await response.json()
-const cardData = data.data
+// Get API Data
+const slug = "/api/project-cards?populate=cardImage.image"
+const apiData = await apiFetch(slug, true)
 ---
 
-{ cardData.filter(card => card.attributes.frontPage === true && card.attributes.highlight === false).map(card => {
+{ apiData.filter(card => card.attributes.frontPage === true && card.attributes.highlight === false).map(card => {
     const cardContent = card.attributes
     const cardImage = process.env.API_URL+card.attributes.cardImage.data.attributes.formats.medium.url
     return <article>

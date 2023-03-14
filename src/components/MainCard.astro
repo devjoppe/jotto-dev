@@ -6,10 +6,6 @@ import {apiFetch} from "../script/apiConnect";
 
 dotenv.config()
 
-/* const response = await fetch(process.env.API_URL+'/api/project-cards?populate=cardImage.image')
-const data = await response.json()
-const cardData = data.data */
-
 // Get API Data
 const slug = "/api/project-cards?populate=cardImage.image"
 const apiData = await apiFetch(slug, true)

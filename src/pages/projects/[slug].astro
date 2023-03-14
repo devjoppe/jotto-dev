@@ -12,7 +12,7 @@ export const getStaticPaths = async () => {
         }
     })
 }
-const {project} = Astro.props
+const { project } = Astro.props
 const serverBody = project.attributes.body.replaceAll("/uploads/", "http://localhost:1337/uploads/")
 const mainImage = process.env.API_URL+project.attributes.mainImage.data.attributes.url
 ---
